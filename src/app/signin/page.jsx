@@ -4,7 +4,6 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
 import { MdEmail, MdLock } from "react-icons/md";
 
 export default function SignInPage() {
@@ -37,10 +36,6 @@ export default function SignInPage() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleGoogleSignIn = () => {
-    signIn("google", { callbackUrl: "/profile" });
   };
 
   return (
@@ -93,25 +88,6 @@ export default function SignInPage() {
               {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
-
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-600"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-[#0f0f23] text-gray-400">
-                Or continue with
-              </span>
-            </div>
-          </div>
-
-          <button
-            onClick={handleGoogleSignIn}
-            className="w-full py-3 bg-white text-gray-800 font-semibold rounded-lg flex items-center justify-center gap-3 transition duration-300 hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <FcGoogle className="text-2xl" />
-            Sign in with Google
-          </button>
 
           <p className="mt-8 text-center text-gray-400">
             {"Don't have an account? "}
